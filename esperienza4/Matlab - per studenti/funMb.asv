@@ -1,0 +1,48 @@
+function dy = funMb(t,y)
+global gege
+BEST_PARS=gege;
+dy = zeros(3,1);    % a column vector
+
+%definisco le equazioni differenziali: 
+%d[MbCO]/dt=dX/dt=y(1);
+%d[Mb]/dt=dY/dt=y(2);
+%d[tra1]/dt=dZ/dt=y(3);
+
+k_1=BEST_PARS(1);
+k2=BEST_PARS(2);
+k_2=BEST_PARS(3); 
+kout=BEST_PARS(4); 
+kin=BEST_PARS(5); 
+kout_2=BEST_PARS(6); 
+kin_2=BEST_PARS(7); 
+kh=BEST_PARS(8); 
+kc=BEST_PARS(9); 
+k_c=BEST_PARS(10);
+kd=BEST_PARS(11); 
+k_d=BEST_PARS(12);
+ke=BEST_PARS(13); 
+k_e=BEST_PARS(14);
+HbCO1=BEST_PARS(15);
+HbCO2=BEST_PARS(16);
+HbP=BEST_PARS(17);
+HbH=BEST_PARS(18);
+tra1=BEST_PARS(19);%queste le tengo anche per le altre curve
+tra2=BEST_PARS(20);
+tra3=BEST_PARS(21);
+HbCO1b=BEST_PARS(22);% della 2
+HbCO2b=BEST_PARS(23);
+HbPb=BEST_PARS(24);
+HbHb=BEST_PARS(25);
+CO1=BEST_PARS(26);
+CO2=BEST_PARS(27);
+k_h=BEST_PARS(28);
+k3=BEST_PARS(29);
+k_3=BEST_PARS(30);
+
+%EQUAZIONI DIFFERENZIALI
+dy(1)=[k_c*(tra1+y(3))+(-k_1-kc-kout)*(MbCO+y(1))+kin*(Mb+y(2))*(CO+y(2))];
+dy(2)=[kout*(HbCO1b+y(1))+kout_2*(HbCO2b+y(2))+(-kin*(CO2+y(3)+y(4))-kin_2*(CO2+y(3)+y(4))-kh)*(HbPb+y(3))+k_h*(HbHb+y(4))];
+dy(4)=[kh*(HbPb+y(3))-k_h*(HbHb+y(4))+k3*(HbCO1b+y(1))-k_3*(HbHb+y(4))*(CO2+y(3)+y(4))];
+dy(3)=[kc*(MbCO+y(1))-k_c*(tra1+y(3))];
+
+return

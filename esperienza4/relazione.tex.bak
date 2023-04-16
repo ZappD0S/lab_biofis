@@ -1,0 +1,209 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage[margin=1in]{geometry} % set page margins automatically
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{lmodern}  % better i18n Postscript version of Knuth's cm fonts
+\usepackage{url}
+\usepackage[parfill]{parskip}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage{mhchem}
+\usepackage{fancyvrb}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[bottom]{footmisc}
+\usepackage{siunitx}
+\usepackage{textgreek}
+\usepackage{subcaption}
+
+\listfiles
+
+\DeclareSIUnit{\sample}{S}
+\DeclareSIUnit{\atm}{atm}
+\DeclareSIUnit{\molar}{M}
+
+\begin{document}
+
+\title{\vspace{-6em}\huge{Relazione di laboratiorio 4}\vspace{-2ex}}
+\author{Gianluca Zappavigna}
+\maketitle
+
+\section{Prova}
+
+% \begin{figure}[H]
+    %     \centering
+    %     \includegraphics[width=0.4\textwidth]{pic.jpg}
+    % \end{figure}
+
+    Lo scopo di questa esperienza è studiare la cinetica di rilegame tra il monossido di carbonio (CO) e la mioglobina (Mb)
+    a seguito della dissociazione provocata da un impulso laser che dura pochi nanosecondi (nanosecond flash photolysis).
+
+    Questa tecnica sfrutta il fatto che il legame \ce{Fe-CO} nell'eme delle globine è fotolabile, ed è possibile ottenere un'efficienza di fotolisi del 100\%.
+    È importate che il flash laser duri pochi \unit{\nano\second}) perché ci interessa studiare la cinetica di rilegame anche a tempi molto brevi
+
+    - l'eme è il gruppo prostetico della mioglobina
+
+    Infatti la cinetica della mioglobina è particolarmente complessa, in quanto è la somma di processi separati che avvengono su scale temporali diverse.
+    Alcune di queste scale di tempi possono essere inferiori al \unit{\micro\second}.
+
+     % (Per questa ragione la cinetica è detta multiesponenziale.)
+
+    Il rilegame viene osservato illuminando il campione con una lampada allo Xenon e misurando le variazioni di assorbanza nel tempo successivamente ad un impulso laser.
+
+    - perché si usa il CO e non O2?
+    Nelle regolari funzioni biologiche la mioglobina lega l'ossigeno molecolare \ce{O_2}.
+    Per questo esperimento si è scelto il \ce{CO} perché, nel caso dell'\ce{O_2}, la luce che incide sul campione può portare alla foto-ossidazione dell'eme,
+
+    cioè all'ossidazione del ferro che passa dallo stato ferroso allo stato ferrico, e contemporaneamente alla formazione dello ione superossido \ce{O_2^-}.
+    La mioglobina in cui l'atomo di \ce{Fe} dell'eme ha stato di ossidazione \ce{Fe^{3+}} è detta metmioglobina (MetMb) ed è incapace di legare il substrato.
+    Questo effetto porterebbe ad una degradazione del campione e quindi ad una perdita di intensità del segnale. Inoltre lo ione superossido fa parte delle specie reattive dell'ossigeno (ROS) e può reagire
+    con le altre proteine danneggiando ulteriormente il campione.
+
+
+Mentre nelle esperienze precedenti effettuavamo misure di assorbanza in funzione della frequenza d'onda e in uno stato di equilibrio del campione,
+in questo caso la misura viene effettuata ad una singola lunghezza d'onda in una condizione di non equilibrio.
+
+La prima parte del setup sperimentale è composto da un laser Nd:YAg. Il flash prodotto dal laser viene ridiretto verso il campione da un'apparato ottico. % che incide sul campione.
+
+Non viene utilizzato il fascio diretto prodotto dal laser, che ha una lunghezza d'onda di 1064 nm, ma si usa un generatore di armoniche per generare la seconda armonica, a 532 nm.
+Siccome il fascio è polarizzato linearmente, per evitare effetti dovuti all'anisotropia del campione si inserisce anche una lamina quarto d'onda, così che la luce che incide
+sul campione abbia polarizzazione circolare. La luce laser in uscita dal campione colpisce poi una superficie assorbente che limita gli effetti di scattering.
+
+Perpendicolarmente al fascio laser si illumina il campione con la luce emessa da una lampada allo Xenon. In questo caso non si tratta di un impulso luminoso
+ma la luce prodotta da questa lampada è continua. Anche in questo caso la luce non arriva direttamente al campione, ma passa attraverso un monocromatore che
+seleziona solo la lunghezza d'onda a 436 nm. La ragione di questa scelta sarà motivata in seguito. La luce della lampada che esce dal campione passa per un secondo
+monocromatore, che selezione sempre la parte dello spettro alla stessa lunghezza d'onda. Lo scopo di questo secondo monocromatore è di escludere sia la luce
+proveniente dal laser che per scattering arriva al detector, sia l'eventuale emissione di fluorescenza del campione. Infine la luce trasmessa arriva al detector.
+Il detector è composta da un fotomoltiplicatore che traduce il debole segnale luminose in un segnale di tensione. Questo segnare di tensione viene misurato da un oscilloscopio digitale.
+La luce della lampada Xe, per passare da un'elemento del setup a quello successivo (lampada, monocromatori, campione), viene collimata da una prima lente e poi focalizzata da una seconda.
+
+Il campione viene tenuto a temperatura costante da una cella peltier. \'E importante non avere variazioni di temperatura durante l'esperimento perché essa influenza la reattività
+tra la mioglobina e il CO libero in soluzione e quindi modifica la cinetica che vogliamo misurare. Lasciare esposto il campione alla luce proveniente dalla lampada Xe renderebbe vana
+la funzione della cella. Si adopera quindi un shutter che normalmente blocca il fascio. Lo shutter viene aperto poco prima che arrivi l'impulso laser e rimane aperto solo per il tempo necessario
+ad osservare la cinetica di rilegame. Questo accorgimento ci permette di minimizzare le perturbazioni termiche sul campione.
+
+
+Per misurare la variazione di assorbanza è stata scelta la lunghezza d'onda di 436 nm perché è un lunghezza d'onda a cui l'assorbimento è molto sensibile al legame tra l'eme e il CO.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{abs_Mb_cropped.png}
+    \caption{TODO}
+\end{figure}
+- commento sul grafico
+
+[si ripete la stessa misura con due campioni che sono stati portati all'equilibrio con delle miscele di azoto e \ce{CO}. La prima miscela aveva una pressione parziale di \ce{CO} di \qty{0.1}{\atm} mentre la seconda di \qty{1}{\atm}.]
+
+[perché si misura la differenza di assorbanza e non l'assorbanza?]
+La tensione misurata dall'oscilloscopio è l'unica misura dell'intensità di luce che attraversa il campione.
+Per questa ragione conosciamo l'intensità del fascio a meno di un fattore moltiplicativo.
+Questo però non ci impedisce di calcolare una misura relativa dell'assorbanza, cioè una differenza di assorbanza.
+La differenza che calcoleremo sarà quella tra l'assorbanza ad un dato tempo $t$ e l'assorbanza del campione in assenza di perturbazioni (prima del flash).
+Infatti
+
+\[ \Delta A(t) = A(t) - A(t < t_0) = \log\left(\frac{I_0}{I(t)}\right) - \log\left(\frac{I_0}{I(t < t_0)}\right) =
+\log\left(\frac{I(t < t_0)}{I(t)}\right)
+\]
+
+Dove $I_0$ rappresenta l'intensità della luce della lampada che incide sul campione e $t_0$ è l'istante in cui il flash laser arriva al campione.
+Ovviamente noi non misuriamo direttamente $I(t)$ ma $\Delta V(t) = k I(t)$. Come è però chiaro dalla formula per $\Delta A(t)$ questo fattore non fa alcuna differenza.
+
+
+I segnali registrati dall'oscilloscopio hanno inevitabilmente una componente di rumore. Si possono mettere in pratica alcune strategie per limitarne l'influenza sul segnale di nostro interesse.
+
+[media fatta con l'oscilloscopio su tante cinetiche]
+
+La prima, e ovvia, cosa da fare è ripetere la misura più volte e fare una media. A tale scopo si può sfruttare una funzionalità dell'oscilloscopio che calcola direttamente la media su acquisizione multiple, ed evitando così di dover salvare più dati del necessario.
+Sono state mediate $N=100$ acquisizioni, che significa che il rumore è stato attenuato di un fattore $1/\sqrt{N} = 10$.
+
+La seconda consiste nel raccogliere una baseline, cioè il segnale misurato dall'oscilloscopio in assenza della luce della lampada. Il segnale così ottenuto viene poi sottratto al segnale regolare.
+Questa pratica ovviamente non riduce il rumore termico ma è utile a rimuovere ogni tipo di interferenza che ha una certa periodicità.
+
+[storia delle diverse scale temporali dell'osc]
+
+Come già anticipato, la cinetica di rilegame del CO alla Mb è composta dalla sovrapposizione di cinetiche più semplici che avvengono su scale di tempi diverse. Risulta di nostro interesse quello che avviene
+anche su scale di tempi successive al flash inferiori ad \qty{1}{\micro\s}. L'oscilloscopio ci permette di arrivare senza difficoltà a frequenze di campionamento di $\qty{10}{\giga\sample \per \second}$.
+A questa frequenza non siamo in grado di registrare l'intera durata del fenomeno perché la memoria dell'oscilloscopio non è sufficiente a contenere questa mole di dati. Inoltre su scale di tempi lunghi
+non ci interessa avere una risoluzione così alta.
+
+Pertanto si è ripetuta la stessa misura impostando tre frequenze di campionamento diverse ma raccogliendo sempre \num{e5} campioni.
+Le frequenze di campionamento sono state scelte in maniera da coprire rispettivamente \qty{1}{\micro\second}, \qty{100}{\micro\second} e \qty{10}{\milli\second}.
+
+[drift PMT]
+Per la scala di tempi più lunga, cioè \qty{10}{\milli\second}, è importante tenere in considerazione l'effetto di \emph{drift} del fotomoltiplicatore. Questo effetto provoca una decrescita nel tempo della tensione prodotta dal PMT a parità di segnale.
+Per eliminare questo effetto si registra una seconda baseline, questa volta nella condizione in cui la luce della lampada arriva al PMT. Questa baseline non viene semplicemente sottratta come nel caso precedente ma
+tutti i dati vengono prima divisa per il valore iniziale. In questo modo si ottiene una serie di dati che parte da 1 e man mano cresce. Dividendo il segnale per la baseline normalizzata si risale al segnale privo dell'effetto di drift.
+Questa procedura aggiuntiva non è necessaria alle scale di tempi più brevi perché l'effetto del drift risulta trascurabile.
+
+
+[Modello cinetico del rilegame, geminato - bimolecolare]
+
+Immediatamente a seguire del flash laser il legame tra il \ce{Fe} e il \ce{CO} si rompe. Se l'energia cinetica del \ce{CO} è sufficiente, esso può fuoriuscire dalla proteina e di diventare libero in soluzione.
+Altrimenti rimane all'interno della proteina ma sempre slegato dall'eme. Queste due fasi prendono il nome rispettivamente di fase bimolecolare e fase geminata.
+
+Il modello che utilizziamo per descrivere la cinetica di rilegame contempla anche un quarto stato, detto stato trappola. In questo stato il \ce{CO} si trova ancora all'interno della proteina ma non è in grado
+né andare in soluzione né di rilegarsi senza prima prima ritornare allo stato geminato.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{kinetics_trimmed.png}
+    \caption{TODO}
+\end{figure}
+
+Da questo schema è immediato dedurre il sistema di equazioni differenziali che descrive la cinetica:
+
+\[
+\begin{dcases}
+    \frac{d}{dt} \ce{[Mb{:}CO]} = k_{-c} \ce{[Trap]} - (k_{-1} + k_c + k_{out}) \ce{[Mb{:}CO]} + k_{in} \ce{[Mb]}\ce{[CO]} \\
+    \frac{d}{dt} \ce{[Mb]} = k_{out} \ce{[Mb{:}CO]} - k_{in} \ce{[Mb]}\ce{[CO]} \\
+    \frac{d}{dt} \ce{[Trap]} = k_c \ce{[Mb{:}CO]} - k_{-c} \ce{[Trap]}
+\end{dcases}
+\]
+
+In queste equazioni new manca una che descriva la variazione di \ce{[CO]}, ma non è necessario dato che \ce{[Mb]} e \ce{[CO]} differiscono solo per una costante.
+Infatti ogni volta che una molecola di \ce{CO} fuoriesce dalla proteina il numero di Mb senza CO e il quello di molecole di CO libere in soluzione aumentano di un'unità. La stessa cosa vale nel verso opposto.
+
+[noi misuriamo la differenza di conc. ma le equazioni rimangono le stesse]
+
+Per la legge di Lambert-Beer, sappiamo che l'assorbanza del campione è proporzionale alla concentrazione di mioglobina.
+
+Alla lunghezza d'onda a cui effettuiamo la misura di assorbimento, la variazione di assorbanza è dovuta unicamente alla formazione di deossiMb (cioè mioglobina con il CO slegato dall'eme). Inoltre, nella condizione di equilibrio,
+tutta l'emoglobina presente in soluzione lega il CO. Siccome la differenza di assorbanza che misuriamo è fatta usando questa condizione come riferimento, quando la concertazione totale di deossiMb è nulla anche $\Delta A$ è nulla.
+Pertanto è lecito scrivere
+
+% Siccome stiamo misurando l'assorbanza ad una frequenza d'onda dove l'assorbimento è dovuto
+% quasi esclusivamente alla mioglobina con il CO slegato dall'eme, l'assorbanza è proporzionale alla somma delle tre concentrazioni
+
+\[\Delta A(t) \propto \ce{[Mb{:}CO]} + \ce{[Mb]} + \ce{[Trap]} \]
+
+Poiché la fotolisi ha un'efficienza del 100\%, l'assorbimento negli istanti successivi all'impulso laser è dovuto a tutte le proteine di Mb presenti in soluzione. Per questa ragione possiamo riscalare il nostro segnale
+in modo che il suo massimo assoluto corrisponda alla concentrazione di mioglobina nel campione, ovvero \qty{17}{\micro\molar}.
+In questo modo conosciamo l'andamento nel tempo della somma delle tre concentrazioni scritte sopra.
+
+
+% Non siamo in grado di determinare l'assorbanza ma solo una differenza di assorbanza $\Delta A$. Allo stesso modo $\Delta A$ sarà proporzionale
+% ad una differenza di concentrazione. Anche in questo caso il sistema di equazioni differenziali scritto sopra rimane sempre utile perché la derivata
+% della differenza di concentrazione è uguale a quella della concentrazione stessa.
+
+% Noi conosciamo una quantità che è proporzionale alla somma delle soluzioni del sistema di equazioni differenziali
+
+
+% Vogliamo determinare tutte le variabili
+
+risolvere il sistema per via numerica. Per trovare i coefficienti e le condizioni iniziali che meglio descrivono i dati ottenuti
+si minimizza per via numerica lo scarto quadratico medio tra la soluzione numerica del sistema e la misura.
+
+[grafico fit]
+
+[dire che a pressioni di CO diverse la cinetica del geminato rimane la stessa ma quella bimolecolare cambia -> reazione mediata dalla diffusione]
+[subito dopo il flash tutto il geminato si rilega in fretta. Se il segnale è ancora alto, significa che la maggior parte dei CO erano usciti in soluzione.]
+
+\end{document}
